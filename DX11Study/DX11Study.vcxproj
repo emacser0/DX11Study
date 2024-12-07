@@ -160,6 +160,7 @@
     <ClInclude Include="DX11Study.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="SimpleMath.h" />
     <ClInclude Include="Values.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
@@ -170,6 +171,7 @@
   <ItemGroup>
     <ClCompile Include="DX11Study.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="SimpleMath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX11Study.rc" />
@@ -189,6 +191,9 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VS</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimpleMath.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

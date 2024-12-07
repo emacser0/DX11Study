@@ -7,7 +7,11 @@ struct FVertex
 	Vec2 TexCoord;
 };
 
-struct alignas(16) FTransformData
+using namespace DirectX;
+
+struct FTransformData
 {
-	Vec3 Offset;
+	Math::Matrix World = Math::Matrix::Identity;
+	Math::Matrix View = Math::Matrix::Identity;
+	Math::Matrix Projection = Math::Matrix::Identity;
 };

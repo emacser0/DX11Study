@@ -71,5 +71,9 @@ private:
 
 	FTransformData TransformData;
 	ComPtr<ID3D11Buffer> ConstantBuffer;
+
+	Vec3 LocalPosition;
+	Vec3 LocalRotation;
+	Vec3 LocalScale;
 };
 

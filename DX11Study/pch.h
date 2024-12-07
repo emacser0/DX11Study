@@ -17,12 +17,16 @@
 #include "DirectXTex/DirectXTex.h"
 #include "DirectXTex/DirectXTex.inl"
 
+#include "SimpleMath.h"
+#include "SimpleMath.inl"
+
 #include "Types.h"
 #include "Structs.h"
 #include "Values.h"
 
 using namespace DirectX;
 using namespace Microsoft::WRL;
+namespace Math = SimpleMath;
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")

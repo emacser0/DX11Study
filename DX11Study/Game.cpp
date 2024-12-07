@@ -20,6 +20,9 @@ FGame::FGame()
 	, PSBlob(nullptr)
 	, ShaderResourceView0(nullptr)
 	, ShaderResourceView1(nullptr)
+	, LocalPosition({ 0.0f, 0.0f, 0.0f })
+	, LocalRotation({ 0.0f, 0.0f, 0.0f })
+	, LocalScale({ 1.0f, 1.0f, 1.0f })
 {
 
 }
@@ -53,8 +56,14 @@ void FGame::Init(HWND InWindowHandle)
 
 void FGame::Update()
 {
-//	TransformData.Offset.x += 0.003f;
-//	TransformData.Offset.y = 0.0f;
+	SimpleMath::Matrix Scale = SimpleMath::Matrix::CreateScale(LocalScale);
+	SimpleMath::Matrix Rotation = SimpleMath::Matrix::CreateRotationX(LocalRotation.x);
+	Rotation *= SimpleMath::Matrix::CreateRotationY(LocalRotation.y);
+	Rotation *= SimpleMath::Matrix::CreateRotationZ(LocalRotation.z);
+	SimpleMath::Matrix Translation = SimpleMath::Matrix::CreateTranslation(LocalPosition);
+
+	SimpleMath::Matrix World = Scale * Rotation * Translation;
+	TransformData.World = World;
 
 	D3D11_MAPPED_SUBRESOURCE SubResource;
 	ZeroMemory(&SubResource, sizeof(SubResource));
