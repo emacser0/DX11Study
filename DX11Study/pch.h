@@ -5,6 +5,7 @@
 #include <list>
 #include <map>
 #include <unordered_map>
+#include <memory>
 #include <cassert>
 
 #include <windows.h>
@@ -26,7 +27,6 @@
 
 using namespace DirectX;
 using namespace Microsoft::WRL;
-namespace Math = SimpleMath;
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
