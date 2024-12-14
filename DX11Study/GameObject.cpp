@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "GameObject.h"
+
+#include "Transform.h"
+
 #include "Shader.h"
 #include "InputLayout.h"
 #include "VertexBuffer.h"
@@ -11,8 +14,6 @@
 #include "BlendState.h"
 #include "Texture.h"
 #include "Pipeline.h"
-
-using namespace SimpleMath;
 
 UGameObject::UGameObject(ComPtr<ID3D11Device> InDevice, ComPtr<ID3D11DeviceContext> InDeviceContext)
 	: Device(InDevice)
@@ -26,9 +27,8 @@ UGameObject::UGameObject(ComPtr<ID3D11Device> InDevice, ComPtr<ID3D11DeviceConte
 	, VertexShader(nullptr)
 	, PixelShader(nullptr)
 	, Texture(nullptr)
-	, LocalPosition({ 0.0f, 0.0f, 0.0f })
-	, LocalRotation({ 0.0f, 0.0f, 0.0f })
-	, LocalScale({ 1.0f, 1.0f, 1.0f })
+	, Transform(std::make_shared<FTransform>())
+	, Parent(std::make_shared<FTransform>())
 {
 	VertexShader = std::make_shared<FVertexShader>(Device);
 	VertexShader->Create(L"Default.hlsl", "VS", "vs_5_0");
@@ -62,18 +62,22 @@ UGameObject::UGameObject(ComPtr<ID3D11Device> InDevice, ComPtr<ID3D11DeviceConte
 
 	Texture = std::make_shared<FTexture>(Device);
 	Texture->Create(L"Skeleton.png");
+
+	Parent->AddChild(Transform);
+	Transform->SetParent(Parent);
 }
 
 void UGameObject::Update()
 {	
-	Matrix Scale = Matrix::CreateScale(LocalScale);
-	Matrix Rotation = Matrix::CreateRotationX(LocalRotation.x);
-	Rotation *= Matrix::CreateRotationY(LocalRotation.y);
-	Rotation *= Matrix::CreateRotationZ(LocalRotation.z);
-	Matrix Translation = Matrix::CreateTranslation(LocalPosition);
+	FVector3 Position = Parent->GetPosition();
+	Position.x += 0.001f;
+	Parent->SetPosition(Position);
 
-	Matrix World = Scale * Rotation * Translation;
-	TransformData.World = World;
+	FVector3 Rotation = Parent->GetRotation();
+	Rotation.z += 0.01f;
+	Parent->SetRotation(Rotation);
+
+	TransformData.World = Transform->GetWorldMatrix();
 
 	ConstantBuffer->CopyData(TransformData);
 }

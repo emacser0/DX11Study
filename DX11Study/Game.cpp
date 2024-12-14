@@ -15,8 +15,6 @@
 #include "SamplerState.h"
 #include "BlendState.h"
 
-using namespace SimpleMath;
-
 FGame::FGame()
 	: Graphics(nullptr)
 	, Pipeline(nullptr)

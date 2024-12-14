@@ -35,7 +35,6 @@ private:
 	FTransformData TransformData;
 	std::shared_ptr<FConstantBuffer<FTransformData>> ConstantBuffer;
 
-	FVector3 LocalPosition;
-	FVector3 LocalRotation;
-	FVector3 LocalScale;
+	std::shared_ptr<class FTransform> Transform;
+	std::shared_ptr<class FTransform> Parent;
 };

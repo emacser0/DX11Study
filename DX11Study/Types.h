@@ -11,8 +11,9 @@ using uint16 = unsigned __int16;
 using uint32 = unsigned __int32;
 using uint64 = unsigned __int64;
 
-using FVector2 = DirectX::XMFLOAT2;
-using FVector3 = DirectX::XMFLOAT3;
-using FVector4 = DirectX::XMFLOAT4;
+using FVector2 = DirectX::SimpleMath::Vector2;
+using FVector3 = DirectX::SimpleMath::Vector3;
+using FVector4 = DirectX::SimpleMath::Vector4;
 using FColor = DirectX::XMFLOAT4;
-
+using FMatrix = DirectX::SimpleMath::Matrix;
+using FQuat = DirectX::SimpleMath::Quaternion;
