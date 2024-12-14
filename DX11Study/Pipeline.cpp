@@ -9,8 +9,8 @@
 #include "Texture.h"
 #include "SamplerState.h"
 
-FPipeline::FPipeline(ComPtr<ID3D11Device> InDevice, ComPtr<ID3D11DeviceContext> InDeviceContext)
-	: Device(InDevice), DeviceContext(InDeviceContext)
+FPipeline::FPipeline(ComPtr<ID3D11DeviceContext> InDeviceContext)
+	: DeviceContext(InDeviceContext)
 {
 
 }
@@ -75,9 +75,11 @@ void FPipeline::SetSamplerState(uint32 InSlot, uint32 InScope, std::shared_ptr<F
 
 void FPipeline::Draw(uint32 InVertexCount, uint32 InStartVertexLocation)
 {
+	DeviceContext->Draw(InVertexCount, InStartVertexLocation);
 }
 
 void FPipeline::DrawIndexed(uint32 InIndexCount, uint32 InStartIndexLocation, uint32 InBaseVertexLocation)
 {
+	DeviceContext->DrawIndexed(InIndexCount, InStartIndexLocation, InBaseVertexLocation);
 }
 

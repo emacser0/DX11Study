@@ -16,7 +16,7 @@ struct FPipelineInfo
 class FPipeline
 {
 public:
-	FPipeline(ComPtr<ID3D11Device> InDevice, ComPtr<ID3D11DeviceContext> InDeviceContext);
+	FPipeline(ComPtr<ID3D11DeviceContext> InDeviceContext);
 	virtual ~FPipeline() = default;
 
 	void UpdatePipeline(const FPipelineInfo& InInfo);
@@ -45,6 +45,5 @@ public:
 	void DrawIndexed(uint32 InIndexCount, uint32 InStartIndexLocation, uint32 InBaseVertexLocation);
 
 private:
-	ComPtr<ID3D11Device> Device;
 	ComPtr<ID3D11DeviceContext> DeviceContext;
 };
