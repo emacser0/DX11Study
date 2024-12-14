@@ -28,8 +28,6 @@ private:
 
 	void CreateConstantBuffer();
 
-	void LoadShaderFromFile(const std::wstring& InPath, const std::string& InName, const std::string& InVersion, ComPtr<ID3DBlob>& OutBlob);
-
 private:
 	std::shared_ptr<class FGraphics> Graphics;
 
@@ -44,11 +42,8 @@ private:
 
 	std::shared_ptr<class FInputLayout> InputLayout;
 
-	ComPtr<ID3D11VertexShader> VertexShader;
-	ComPtr<ID3DBlob> VSBlob;
-
-	ComPtr<ID3D11PixelShader> PixelShader;
-	ComPtr<ID3DBlob> PSBlob;
+	std::shared_ptr<class FVertexShader> VertexShader;
+	std::shared_ptr<class FPixelShader> PixelShader;
 
 	ComPtr<ID3D11ShaderResourceView> ShaderResourceView0;
 	ComPtr<ID3D11ShaderResourceView> ShaderResourceView1;

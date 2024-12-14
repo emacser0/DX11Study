@@ -5,6 +5,7 @@
 #include "IndexBuffer.h"
 #include "InputLayout.h"
 #include "GeometryHelper.h"
+#include "Shader.h"
 
 using namespace SimpleMath;
 
@@ -16,9 +17,7 @@ FGame::FGame()
 	, IndexBuffer(nullptr)
 	, InputLayout(nullptr)
 	, VertexShader(nullptr)
-	, VSBlob(nullptr)
 	, PixelShader(nullptr)
-	, PSBlob(nullptr)
 	, ShaderResourceView0(nullptr)
 	, ShaderResourceView1(nullptr)
 	, LocalPosition({ 0.0f, 0.0f, 0.0f })
@@ -171,22 +170,17 @@ void FGame::CreateGeometry()
 
 void FGame::CreateInputLayout()
 {
-	InputLayout->Create(FVertexTextureData::Descs, VSBlob);
+	InputLayout->Create(FVertexTextureData::Descs, VertexShader->GetBlob());
 }
 
 void FGame::CreateVS()
 {
-	LoadShaderFromFile(L"Default.hlsl", "VS", "vs_5_0", VSBlob);
-
-	HRESULT Result = Graphics->GetDevice()->CreateVertexShader(VSBlob->GetBufferPointer(), VSBlob->GetBufferSize(), nullptr, VertexShader.GetAddressOf());
-	CHECK(Result);
+	VertexShader->Create(L"Default.hlsl", "VS", "vs_5_0");
 }
 
 void FGame::CreatePS()
 {
-	LoadShaderFromFile(L"Default.hlsl", "PS", "ps_5_0", PSBlob);
-	HRESULT Result = Graphics->GetDevice()->CreatePixelShader(PSBlob->GetBufferPointer(), PSBlob->GetBufferSize(), nullptr, PixelShader.GetAddressOf());
-	CHECK(Result);
+	PixelShader->Create(L"Default.hlsl", "PS", "ps_5_0");
 }
 
 void FGame::CreateSRV()
@@ -221,25 +215,3 @@ void FGame::CreateConstantBuffer()
 
 	HRESULT Result = Device->CreateBuffer(&BufferDesc, nullptr, ConstantBuffer.GetAddressOf());
 }
-
-void FGame::LoadShaderFromFile(const std::wstring& InPath, const std::string& InName, const std::string& InVersion, ComPtr<ID3DBlob>& OutBlob)
-{
-#if __DEBUG
-	const int32 CompileFlags = D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION;
-#else
-	const int32 CompileFlags = D3DCOMPILE_SKIP_OPTIMIZATION;
-#endif
-
-	HRESULT Result = ::D3DCompileFromFile(
-		InPath.c_str(),
-		nullptr,
-		D3D_COMPILE_STANDARD_FILE_INCLUDE,
-		InName.c_str(),
-		InVersion.c_str(),
-		CompileFlags,
-		0,
-		OutBlob.GetAddressOf(),
-		nullptr);
-	CHECK(Result);
-}
-
