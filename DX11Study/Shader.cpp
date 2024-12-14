@@ -44,6 +44,8 @@ FVertexShader::FVertexShader(ComPtr<ID3D11Device> InDevice)
 
 void FVertexShader::Create(const std::wstring& InPath, const std::string& InName, const std::string& InVersion)
 {
+	LoadShaderFromFile(InPath, InName, InVersion);
+
 	HRESULT Result = Device->CreateVertexShader(Blob->GetBufferPointer(), Blob->GetBufferSize(), nullptr, VertexShader.GetAddressOf());
 	CHECK(Result);
 }
@@ -55,6 +57,8 @@ FPixelShader::FPixelShader(ComPtr<ID3D11Device> InDevice)
 
 void FPixelShader::Create(const std::wstring& InPath, const std::string& InName, const std::string& InVersion)
 {
+	LoadShaderFromFile(InPath, InName, InVersion);
+
 	HRESULT Result = Device->CreatePixelShader(Blob->GetBufferPointer(), Blob->GetBufferSize(), nullptr, PixelShader.GetAddressOf());
 	CHECK(Result);
 }

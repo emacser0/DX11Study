@@ -157,6 +157,8 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BlendState.h" />
+    <ClInclude Include="ConstantBuffer.h" />
     <ClInclude Include="DX11Study.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="GeometryHelper.h" />
@@ -165,8 +167,11 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="InputLayout.h" />
+    <ClInclude Include="RasterizerState.h" />
+    <ClInclude Include="SamplerState.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="SimpleMath.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Values.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
@@ -177,6 +182,8 @@
     <ClInclude Include="VertexData.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BlendState.cpp" />
+    <ClCompile Include="ConstantBuffer.cpp" />
     <ClCompile Include="DX11Study.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="GeometryHelper.cpp" />
@@ -184,8 +191,11 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="InputLayout.cpp" />
+    <ClCompile Include="RasterizerState.cpp" />
+    <ClCompile Include="SamplerState.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SimpleMath.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="VertexData.cpp" />
   </ItemGroup>

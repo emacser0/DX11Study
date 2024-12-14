@@ -2,6 +2,7 @@
 
 #include "Geometry.h"
 #include "VertexData.h"
+#include "ConstantBuffer.h"
 
 class FGame
 {
@@ -31,9 +32,9 @@ private:
 private:
 	std::shared_ptr<class FGraphics> Graphics;
 
-	ComPtr<ID3D11RasterizerState> RasterizerState;
-	ComPtr<ID3D11SamplerState> SamplerState;
-	ComPtr<ID3D11BlendState> BlendState;
+	std::shared_ptr<class FRasterizerState> RasterizerState;
+	std::shared_ptr<class FSamplerState> SamplerState;
+	std::shared_ptr<class FBlendState> BlendState;
 
 	std::shared_ptr<FGeometry<FVertexTextureData>> Geometry;
 
@@ -45,11 +46,11 @@ private:
 	std::shared_ptr<class FVertexShader> VertexShader;
 	std::shared_ptr<class FPixelShader> PixelShader;
 
-	ComPtr<ID3D11ShaderResourceView> ShaderResourceView0;
-	ComPtr<ID3D11ShaderResourceView> ShaderResourceView1;
+	std::shared_ptr<class FTexture> Texture0;
+	std::shared_ptr<class FTexture> Texture1;
 
 	FTransformData TransformData;
-	ComPtr<ID3D11Buffer> ConstantBuffer;
+	std::shared_ptr<FConstantBuffer<FTransformData>> ConstantBuffer;
 
 	FVector3 LocalPosition;
 	FVector3 LocalRotation;

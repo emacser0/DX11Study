@@ -1,4 +1,13 @@
 #pragma once
+
+enum EShaderScope
+{
+	SS_None = 0,
+	SS_VertexShader = (1 << 0),
+	SS_PixelShader = (1 << 1),
+	SS_Both = SS_VertexShader | SS_PixelShader
+};
+
 class FShader
 {
 public:
@@ -27,6 +36,8 @@ public:
 
 	virtual void Create(const std::wstring& InPath, const std::string& InName, const std::string& InVersion) override;
 
+	ComPtr<ID3D11VertexShader> GetComPtr() const { return VertexShader; }
+
 protected:
 	ComPtr<ID3D11VertexShader> VertexShader;
 };
@@ -38,6 +49,8 @@ public:
 	virtual ~FPixelShader() = default;
 
 	virtual void Create(const std::wstring& InPath, const std::string& InName, const std::string& InVersion) override;
+
+	ComPtr<ID3D11PixelShader> GetComPtr() const { return PixelShader; }
 
 protected:
 	ComPtr<ID3D11PixelShader> PixelShader;
