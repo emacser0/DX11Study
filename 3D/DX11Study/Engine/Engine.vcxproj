@@ -170,6 +170,7 @@ xcopy /Y "$(ProjectDir)*.inl" "$(SolutionDir)Libraries\Include\Engine"</Command>
     <ClInclude Include="EnginePch.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Geometry.h" />
+    <ClInclude Include="GeometryHelper.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="IExecute.h" />
     <ClInclude Include="IndexBuffer.h" />
@@ -193,6 +194,7 @@ xcopy /Y "$(ProjectDir)*.inl" "$(SolutionDir)Libraries\Include\Engine"</Command>
     <ClCompile Include="ConstantBuffer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Geometry.cpp" />
+    <ClCompile Include="GeometryHelper.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="IExecute.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />

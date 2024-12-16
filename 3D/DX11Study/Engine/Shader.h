@@ -55,7 +55,7 @@ private:
 	std::vector<FTechnique> Techniques;
 };
 
-class ShaderManager
+class FShaderManager
 {
 public:
 	static FShaderDesc GetEffect(const std::wstring& InFileName);

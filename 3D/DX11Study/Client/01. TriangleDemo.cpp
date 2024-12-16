@@ -7,9 +7,9 @@ void FTriangleDemo::Init()
 
 	{
 		Vertices.resize(3);
-		Vertices[0].Position = Vec3(-0.5f, 0.0f, 0.0f);
-		Vertices[1].Position = Vec3(0.0f, 0.5f, 0.0f);
-		Vertices[2].Position = Vec3(0.5f, 0.0f, 0.0f);
+		Vertices[0].Position = FVector3(-0.5f, 0.0f, 0.0f);
+		Vertices[1].Position = FVector3(0.0f, 0.5f, 0.0f);
+		Vertices[2].Position = FVector3(0.5f, 0.0f, 0.0f);
 	}
 
 	Buffer = std::make_shared<FVertexBuffer>();

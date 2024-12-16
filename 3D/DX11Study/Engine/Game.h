@@ -10,7 +10,7 @@ struct FGameDesc
 	float Height = 600;
 	bool bVSync = false;
 	bool bWindowed = true;
-	Color ClearColor = Color(0.5f, 0.5f, 0.5f, 0.5f);
+	FColor ClearColor = FColor(0.5f, 0.5f, 0.5f, 0.5f);
 };
 
 class FGame

@@ -21,7 +21,7 @@ FShader::~FShader()
 
 void FShader::CreateEffect()
 {
-	ShaderDesc = ShaderManager::GetEffect(File);
+	ShaderDesc = FShaderManager::GetEffect(File);
 
 	ShaderDesc.Effect->GetDesc(&EffectDesc);
 	for (UINT t = 0; t < EffectDesc.Techniques; t++)
@@ -273,9 +273,9 @@ ComPtr<ID3DX11EffectUnorderedAccessViewVariable> FShader::GetUAV(const std::stri
 	return ShaderDesc.Effect->GetVariableByName(InName.c_str())->AsUnorderedAccessView();
 }
 
-unordered_map<std::wstring, FShaderDesc> ShaderManager::Shaders;
+unordered_map<std::wstring, FShaderDesc> FShaderManager::Shaders;
 
-FShaderDesc ShaderManager::GetEffect(const std::wstring& InFileName)
+FShaderDesc FShaderManager::GetEffect(const std::wstring& InFileName)
 {
 	if (Shaders.count(InFileName) == 0)
 	{
