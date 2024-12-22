@@ -21,5 +21,5 @@ struct FVertexTextureNormalData
 {
 	FVector3 Position = { 0, 0, 0 };
 	FVector2 TexCoord = { 0, 0 };
-	FVector3 normal = { 0, 0, 0 };
+	FVector3 Normal = { 0, 0, 0 };
 };
