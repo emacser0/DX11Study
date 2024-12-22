@@ -10,6 +10,9 @@
     <Filter Include="Main">
       <UniqueIdentifier>{ef6c0580-3eea-40ef-b895-bbec7637ebc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Camera">
+      <UniqueIdentifier>{90657367-735c-4c93-a726-e4f550a8fb52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -23,6 +26,27 @@
     </ClInclude>
     <ClInclude Include="03. ConstBufferDemo.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="05. TextureDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="06. SamplerDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="07. HeightMapDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="08. NormalDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="09. MeshDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="04. CameraDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraScript.h">
+      <Filter>Main\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +65,27 @@
     <ClCompile Include="03. ConstBufferDemo.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="05. TextureDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="06. SamplerDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="07. HeightMapDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="08. NormalDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="09. MeshDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="04. CameraDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraScript.cpp">
+      <Filter>Main\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\Shaders\01. Triangle.fx">
@@ -50,6 +95,18 @@
       <Filter>Shaders</Filter>
     </FxCompile>
     <FxCompile Include="..\Shaders\03. ConstBuffer.fx">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\04. Texture.fx">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\05. Sampler.fx">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\06. Terrain.fx">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\07. Normal.fx">
       <Filter>Shaders</Filter>
     </FxCompile>
   </ItemGroup>

@@ -106,7 +106,7 @@ void FGeometryHelper::CreateCube(std::shared_ptr<FGeometry<FVertexTextureData>> 
 	InGeometry->SetIndices(Indices);
 }
 
-void FGeometryHelper::CreateGrid(std::shared_ptr<FGeometry<FVertexTextureData>> InGeometry, int32 InSizeX, int32 InSizeY, int32 InSizeZ)
+void FGeometryHelper::CreateGrid(std::shared_ptr<FGeometry<FVertexTextureData>> InGeometry, int32 InSizeX, int32 InSizeZ)
 {
 	std::vector<FVertexTextureData> Vertices;
 
@@ -334,7 +334,7 @@ void FGeometryHelper::CreateCube(shared_ptr<FGeometry<FVertexTextureNormalData>>
 	InGeometry->SetIndices(Indices);
 }
 
-void FGeometryHelper::CreateGrid(shared_ptr<FGeometry<FVertexTextureNormalData>> InGeometry, int32 sizeX, int32 InSizeY, int32 sizeZ)
+void FGeometryHelper::CreateGrid(shared_ptr<FGeometry<FVertexTextureNormalData>> InGeometry, int32 sizeX, int32 sizeZ)
 {
 	std::vector<FVertexTextureNormalData> Vertices;
 

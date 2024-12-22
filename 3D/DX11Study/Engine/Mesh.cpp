@@ -20,14 +20,23 @@ void FMesh::CreateQuad()
 
 void FMesh::CreateCube()
 {
+	Geometry = std::make_shared<FGeometry<FVertexTextureNormalData>>();
+	FGeometryHelper::CreateCube(Geometry);
+	CreateBuffers();
 }
 
 void FMesh::CreateGrid(int32 InSizeX, int32 InSizeY)
 {
+	Geometry = std::make_shared<FGeometry<FVertexTextureNormalData>>();
+	FGeometryHelper::CreateGrid(Geometry, InSizeX, InSizeY);
+	CreateBuffers();
 }
 
 void FMesh::CreateSphere()
 {
+	Geometry = std::make_shared<FGeometry<FVertexTextureNormalData>>();
+	FGeometryHelper::CreateSphere(Geometry);
+	CreateBuffers();
 }
 
 void FMesh::CreateBuffers()
